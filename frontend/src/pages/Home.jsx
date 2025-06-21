@@ -16,7 +16,7 @@ export default function Home() {
 
   const fetchAll = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/users');
+      const res = await axios.get('https://talkingme-lh3n.onrender.com/api/users');
       setUsers(res.data.users);
       setRequests(res.data.pendingRequests);
       setContacts(res.data.contacts);
@@ -27,7 +27,7 @@ export default function Home() {
 
   const sendRequest = async (targetId) => {
     try {
-      await axios.post('http://localhost:5000/api/request/send', { targetUserId: targetId });
+      await axios.post('https://talkingme-lh3n.onrender.com/api/request/send', { targetUserId: targetId });
       alert('Request sent');
     } catch (err) {
       alert(err.response?.data?.message || 'Error sending request');
@@ -35,12 +35,12 @@ export default function Home() {
   };
 
   const acceptRequest = async (senderId) => {
-    await axios.post('http://localhost:5000/api/request/accept', { senderId });
+    await axios.post('https://talkingme-lh3n.onrender.com/api/request/accept', { senderId });
     fetchAll();
   };
 
   const rejectRequest = async (senderId) => {
-    await axios.post('http://localhost:5000/api/request/reject', { senderId });
+    await axios.post('https://talkingme-lh3n.onrender.com/api/request/reject', { senderId });
     fetchAll();
   };
 

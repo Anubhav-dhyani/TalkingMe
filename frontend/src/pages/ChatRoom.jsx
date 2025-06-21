@@ -44,7 +44,7 @@ useEffect(() => {
   try {
     const token = localStorage.getItem('token'); // Assuming token is stored here
 
-    const res = await axios.get(`http://localhost:5000/api/chat/${receiverId}`, {
+    const res = await axios.get(`https://talkingme-lh3n.onrender.com/api/chat/${receiverId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
