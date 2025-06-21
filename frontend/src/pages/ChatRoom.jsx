@@ -4,7 +4,12 @@ import { AuthContext } from '../context/AuthContext';
 import io from 'socket.io-client';
 import axios from 'axios';
 
-const socket = io('http://localhost:5000'); // Backend URL
+const socket = io(
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:5000' // local dev
+    : 'https://your-backend.onrender.com' // deployed backend
+);
+// Backend URL
 
 
 export default function ChatRoom() {
